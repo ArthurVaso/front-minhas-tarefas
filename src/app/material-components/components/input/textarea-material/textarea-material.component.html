@@ -1,0 +1,6 @@
+<div class="container m-0 p-0  d-flex justify-content-center">
+    <mat-form-field appearance="outline" class="w-{{width}}">
+        <mat-label>{{label}}</mat-label>
+        <textarea [maxlength]="maxLength" [minLength]="minLength" [ngStyle]="{resize}" [(ngModel)]="value" (ngModelChange)="onChangeValue()" matInput [placeholder]="placeHolder"></textarea>
+    </mat-form-field>
+</div>

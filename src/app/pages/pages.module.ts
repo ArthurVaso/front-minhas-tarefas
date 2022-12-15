@@ -7,8 +7,6 @@ import { CadastroTarefaComponent } from './cadastro-tarefa/cadastro-tarefa.compo
 import { ListarTarefaComponent } from './listar-tarefa/listar-tarefa.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent,

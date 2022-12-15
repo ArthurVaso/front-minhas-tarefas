@@ -1,0 +1,7 @@
+<div [ngClass]="hasMenu ? 'row m-0 mt-3 justify-content-center mw-100' : 'row flex-column align-items-center mx-auto mw-100'">
+    <form autocomplete="off" class="form-style" [ngClass]="{'mt-5':!hasMenu}">
+        <h1 class="title-font mb-4 mw-75 fs-1 text-center">{{title}}</h1>
+        <h1 *ngIf="subTitle" class="title-font fs-6 text-left">{{subTitle}}</h1>
+        <ng-content select="[content]"></ng-content>
+    </form>
+</div>

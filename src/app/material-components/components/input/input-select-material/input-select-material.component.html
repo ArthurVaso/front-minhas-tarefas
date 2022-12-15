@@ -1,0 +1,9 @@
+<div class="container m-0 p-0  d-flex justify-content-center">
+  <mat-form-field appearance="outline" class="w-{{width}}">
+    <mat-label>{{label}}</mat-label>
+    <mat-select [(ngModel)]="value" #selectValue (selectionChange)="onChangeValue($event.value)" [required]="required" [disabled]="disabled">
+      <mat-option [value]="isNumber() ? '-1' : -1">Selecione uma opção...</mat-option>
+      <mat-option *ngFor="let item of dataSource" [value]="item[valueField]">{{item[textField]}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
