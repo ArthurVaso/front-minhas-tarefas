@@ -1,3 +1,4 @@
+import { TarefaComponent } from './tarefa/tarefa.component';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,7 +23,8 @@ registerLocaleData(localePt, 'pt');
     CadastroUsuarioComponent,
     CadastroTarefaComponent,
     ListarTarefaComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    TarefaComponent
   ],
   imports: [
     CommonModule,

@@ -76,18 +76,26 @@ export class CadastroUsuarioComponent implements OnInit {
 
       return;
     }
-
+    const usuarioLogin: Usuario = {
+      nome: "Arthur",
+      sobrenome: "Vaso",
+      email: "q@q.com",
+      senha: "123456",
+      ativo: true
+    } as Usuario;
+    /*
       const usuarioLogin: Usuario = {
         nome: this.name,
         sobrenome: this.surname,
         email: this.email,
         senha: this.password,
         ativo: true
-      };
+      };*/
+      console.log(usuarioLogin)
       debugger
       this.authService.signUp(usuarioLogin).subscribe({
         next: () => {
-          this.router.navigate(['/listar-tarefa']);
+          this.router.navigate(['/login']);
         },
         error: err => {
           this.toastService.openErrorToast(err);

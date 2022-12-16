@@ -22,7 +22,8 @@ export class AuthService {
     return this.http
     .post<any>(BASE_URL + '/usuario/login', usuario)
     .pipe(switchMap((result: any) => {
-      this.saveToken(result.jwt);
+      debugger
+      this.saveToken(result.refresh_token);
       this.saveUsuario(result.user);
       console.log("login")
       return of(null);
@@ -30,10 +31,10 @@ export class AuthService {
   }
 
   //Cria usuario
-  signUp(usuario: Usuario): Observable<null> {
+  signUp(usuario: Usuario): Observable<any> {
     return this.http
-    .post<SignUpReturn>(BASE_URL + '/usuario', usuario)
-    .pipe(switchMap((result: SignUpReturn) => {
+    .post<any>(BASE_URL + '/usuario/', usuario)
+    .pipe(switchMap((result: any) => {
       debugger
       this.saveToken(result.refresh_token);
       this.saveUsuario(result.usuario);

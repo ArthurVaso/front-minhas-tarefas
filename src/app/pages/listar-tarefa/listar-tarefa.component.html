@@ -1,1 +1,82 @@
-<p>listar-tarefa works!</p>
+<div class="container-content d-flex flex-column align-items-center mx-auto">
+  <div class="header w-100 col-12 d-flex align-items-center mx-auto">
+    <div class="img p-sm-1">
+    <img class="img-fluid" src="../../../assets/icone-logo.gif" alt="Logo minhas tarefas" />
+  </div>
+  <div class="titulo p-sm-1">
+    <h1 class="title">Minhas Tarefas</h1>
+  </div>
+  <div class="vazio p-sm-1"></div>
+  <div class="nova p-sm-2">
+    <h3>Nova tarefa</h3>
+  </div>
+  <div class="perfil p-sm-2">
+    <h3>Perfil</h3>
+  </div>
+  <div class="sair p-sm-2">
+    <h3>Sair</h3>
+  </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row align-items-center mx-auto">
+      <div class="col-sm-4" style="background-color: rgba(0, 255, 255, 0.639);">
+        <h5>15/12/2022</h5>
+        <p *ngIf="!sourceTarefa.length" class="fs-1 text-center mt-5 py-4 main-title">Não há tarefas cadastradas
+        </p>
+
+        <p *ngIf="sourceTarefa.length" class="fs-1 text-center mt-5 py-4 main-title">Lista de tarefas </p>
+        <div *ngIf="sourceTarefa.length" class="row justify-content-center m-0 p-0">
+          <div class="my-3 col-6 d-flex flex-column align-items-center gap-2" style="width: 700px;">
+            <div class="actions w-100 d-flex justify-content-end" style="width: 700px; max-width: 80vw;">
+              <button style="background-color: #154580;" routerLink="/tarefa" mat-fab matTooltip="Adicionar tarefa"
+                color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <mat-accordion class="w-100">
+              <mat-expansion-panel *ngFor="let tarefa of sourceTarefa" hideToggle class="p-2"
+                (click)="onClickInsideArrow($event, tarefa)">
+                <mat-expansion-panel-header>
+                  <mat-panel-title style="font-weight: bold;overflow-x: auto; overflow-wrap: break-word;">
+                    {{tarefa.titulo}}
+                  </mat-panel-title>
+                  <mat-panel-description class="card-item-content">
+                    <div class="w-100 d-flex justify-content-end">
+      <!--                <a [routerLink]="['/tarefa, tarefa.id]"><mat-icon aria-hidden="false"
+                          aria-label="Example home icon" fontIcon="edit"></mat-icon></a>
+      -->                <a (click)="onClickDelete($event, tarefa.id)"><mat-icon aria-hidden="false"
+                          aria-label="Example home icon" fontIcon="delete_outline"></mat-icon></a>
+                      <mat-icon class="fs-2" *ngIf="!arrowState[tarefa.id]"
+                        style="color: #1e1a9d;">arrow_drop_down</mat-icon>
+                      <mat-icon class="fs-2" *ngIf="arrowState[tarefa.id]"
+                        style="color: #591a9d;">arrow_drop_up</mat-icon>
+                    </div>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                {{tarefa.descricao || 'Não há descrição'}}
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4" style="background-color: rgba(64, 255, 0, 0.639);">
+        <h5>16/12/2022</h5>
+      </div>
+      <div class="col-sm-4" style="background-color: rgba(111, 0, 255, 0.639);">
+        <h5>17/12/2022</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer p-12">
+  <small class="TextoCopyright ff-inter">
+    &copy;
+    2022 IFSP - Araraquara
+    <a class="link" href="https://github.com/ArthurVaso" target="_blank">Arthur</a>
+    e
+    <a class="link" href="https://github.com/Jun27-max" target="_blank">Júnior</a>
+    . Todos os direitos reservados.
+  </small>
+</footer>
