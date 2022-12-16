@@ -1,1 +1,42 @@
-<p>login works!</p>
+<div class="container-content">
+<centered-form-material [title]="'Login'">
+  <span content>
+      <input-email-material
+          label="E-MAIL"
+          required="required"
+          type="email"
+          [maxLength]="100"
+          [(value)]="email"
+          width="100"
+      ></input-email-material>
+      <input-password-material
+          label="SENHA"
+          required="required"
+          type="password"
+          [maxLength]="100"
+          [(value)]="password"
+          width="100"
+      ></input-password-material>
+      <p class="fs-6" style="text-transform: uppercase;">redefinir sua senha? <a href="/esqueceu-senha">clique aqui</a></p>
+      <button-form-material
+          value="LOGIN"
+          (click)="onClickButtonLogin()"
+          bgColor="#154580"
+          textColor="#FFF"
+          width="75"
+          [height]="50"
+      ></button-form-material>
+      <p class="fs-6 mt-5 text-center" style="text-transform: uppercase;">Não possui uma conta? <a href="/cadastro">Cadastre-se</a></p>
+  </span>
+</centered-form-material>
+</div>
+<footer class="footer p-12">
+  <small class="TextoCopyright ff-inter">
+    &copy;
+    2022 IFSP - Araraquara
+    <a class="link" href="https://github.com/ArthurVaso" target="_blank">Arthur</a>
+    e
+    <a class="link" href="https://github.com/Jun27-max" target="_blank">Júnior</a>
+    . Todos os direitos reservados.
+  </small>
+</footer>

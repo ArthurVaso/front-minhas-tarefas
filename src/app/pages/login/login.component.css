@@ -1,0 +1,45 @@
+.form-style {
+  max-height: 80vh;
+  max-width: 90vw;
+  width: 500px;
+  height: 500px;
+}
+
+.title-font {
+  font-family: 'Comfortaa';
+}
+
+.container-content {
+  background-image: url(/assets/background-completo.png);
+  max-height: 90vh;
+  max-width: 100vw;
+  width: 1800px;
+  height: 700px;
+  background-size: cover;
+  min-height: 60vh;
+}
+
+.footer {
+  background-image: url(/assets/fundo-cabecalho.png);
+  background-size: 110%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+}
+
+small {
+  text-align: center;
+  align-items: center;
+  margin-left: 5vw;
+}
+
+.TextoCopyright {
+  color: darkgray;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.link {
+  color: violet;
+}

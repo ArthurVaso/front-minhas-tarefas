@@ -1,0 +1,6 @@
+<div class="container m-0 p-0  d-flex justify-content-center w-100 flex-column mt-2 mb-2">
+    <mat-label>{{label}}</mat-label>
+    <div class="mr-2">
+        <mat-checkbox  [(ngModel)]="value[i]" style="margin-right: 1rem;" (change)="onChange(i, $event.checked)" *ngFor="let item of dataSource; let i = index" [value]="item[valueField]">{{item[textField]}}</mat-checkbox>
+    </div>
+</div>

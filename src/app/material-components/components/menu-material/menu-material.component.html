@@ -1,0 +1,110 @@
+<mat-drawer-container class="example-container" autosize style="background-color: white; min-height: 100vh;">
+    <mat-drawer #drawer *ngIf="showShortMenu" class="example-sidenav d-flex flex-column p-3" mode="over" style="width: 300px; min-height: 100vh; background-color: #7B9D1A;">
+        <div class="d-flex justify-content-center p-2 mb-3">
+            <a [routerLink]="['/financial-balance-sheet']" (click)="drawer.toggle()">
+                <img class="img-size-side" src="../../../../assets/home-img.png" alt="imagem do logo" (click)="drawer.toggle()">
+            </a>
+        </div>
+        <div class="d-flex justify-content-center p-2" style="color: white;">
+            <button mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu" [routerLink]="['/financial-balance-sheet']" (click)="drawer.toggle()">BALANÇO FINANCEIRO</button>
+        </div>
+        <div class="d-flex justify-content-center p-2" style="color: white;">
+            <button [matMenuTriggerFor]="menu" mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu">RECEBIMENTO</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/receive']" (click)="drawer.toggle()">ADICIONAR</button>
+                <button mat-menu-item [routerLink]="['/list-receive']" (click)="drawer.toggle()">LISTAR</button>
+              </mat-menu>
+        </div>
+        <div class="d-flex justify-content-center p-2" style="color: white;">
+            <button [matMenuTriggerFor]="menu2" mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu">VENCIMENTO</button>
+            <mat-menu #menu2="matMenu">
+                <button mat-menu-item [routerLink]="['/spending']" (click)="drawer.toggle()">ADICIONAR</button>
+                <button mat-menu-item [routerLink]="['/list-pay']" (click)="drawer.toggle()">LISTAR</button>
+              </mat-menu>
+        </div>
+        <div class="d-flex justify-content-center p-2" style="color: white;">
+            <button [matMenuTriggerFor]="menu3" mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu">CATEGORIA</button>
+            <mat-menu #menu3="matMenu">
+                <button mat-menu-item [routerLink]="['/category']" (click)="drawer.toggle()">ADICIONAR</button>
+                <button mat-menu-item [routerLink]="['/list-category']" (click)="drawer.toggle()">LISTAR</button>
+              </mat-menu>
+        </div>
+        <div class="d-flex justify-content-center p-2" style="color: white;">
+            <button mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu" [routerLink]="['/profile']" (click)="drawer.toggle()">PERFIL</button>
+        </div>
+        <div class="d-flex justify-content-center p-2" style="color: white;">
+            <button [matMenuTriggerFor]="menuNovo" mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu">BAIXE O APP</button>
+            <mat-menu #menuNovo="matMenu">
+                <button mat-menu-item (click)="onClickDownload();drawer.toggle();">
+                    BAIXAR
+                    <mat-icon style="color: #A4C639;">android</mat-icon>
+                </button>
+              </mat-menu>
+        </div>
+        <div class="d-flex justify-content-center p-2" style="color: white;">
+            <button mat-button class="fs-6 w-100" (click)="onClickSair()">SAIR</button>
+        </div>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <mat-toolbar color="primary" class="d-flex">
+                <div *ngIf="!showShortMenu" class="col-4 col-sm-4 col-md-4 d-flex justify-content-start">
+                    <a [routerLink]="['/financial-balance-sheet']">
+                        <img class="img-size" src="../../../../assets/home-img.png" alt="imagem do logo" (click)="drawer.toggle()">
+                    </a>
+                </div>
+                <div *ngIf="!showShortMenu" class="col-8 col-sm-8 col-md-8 d-flex justify-content-between">
+                    <div class="d-flex justify-content-center p-2" style="color: white;">
+                        <button mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu" [routerLink]="['/financial-balance-sheet']">BALANÇO FINANCEIRO</button>
+                    </div>
+                    <div class="d-flex justify-content-center p-2" style="color: white;">
+                        <button [matMenuTriggerFor]="menu" mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu">RECEBIMENTO</button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item [routerLink]="['/receive']">ADICIONAR</button>
+                            <button mat-menu-item [routerLink]="['/list-receive']">LISTAR</button>
+                          </mat-menu>
+                    </div>
+                    <div class="d-flex justify-content-center p-2" style="color: white;">
+                        <button [matMenuTriggerFor]="menu2" mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu">VENCIMENTO</button>
+                        <mat-menu #menu2="matMenu">
+                            <button mat-menu-item [routerLink]="['/spending']">ADICIONAR</button>
+                            <button mat-menu-item [routerLink]="['/list-pay']">LISTAR</button>
+                          </mat-menu>
+                    </div>
+                    <div class="d-flex justify-content-center p-2" style="color: white;">
+                        <button [matMenuTriggerFor]="menu3" mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu">CATEGORIA</button>
+                        <mat-menu #menu3="matMenu">
+                            <button mat-menu-item [routerLink]="['/category']">ADICIONAR</button>
+                            <button mat-menu-item [routerLink]="['/list-category']">LISTAR</button>
+                          </mat-menu>
+                    </div>
+                    <div class="d-flex justify-content-center p-2" style="color: white;">
+                        <button mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu" [routerLink]="['/profile']">PERFIL</button>
+                    </div>
+                    <div class="d-flex justify-content-center p-2" style="color: white;">
+                        <button [matMenuTriggerFor]="menuNovo" mat-button class="fs-6 w-100" routerLinkActive="bg-active-button-menu">BAIXE O APP</button>
+                        <mat-menu #menuNovo="matMenu">
+                            <button mat-menu-item (click)="onClickDownload();drawer.toggle();">
+                                BAIXAR
+                                <mat-icon style="color: #A4C639;">android</mat-icon>
+                            </button>
+                          </mat-menu>
+                    </div>
+                    <div class="d-flex justify-content-center p-2" style="color: white;">
+                        <button mat-button class="fs-6 w-100" (click)="onClickSair()">SAIR</button>
+                    </div>
+                </div>
+            <div *ngIf="showShortMenu" class="col-8 col-sm-8 col-md-8 d-flex justify-content-start">
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div *ngIf="showShortMenu" class="col-4 col-sm-4 col-md-4 d-flex justify-content-end">
+                <a [routerLink]="['/financial-balance-sheet']">
+                    <img class="img-size" src="../../../../assets/home-img.png" alt="imagem do logo">
+                </a>
+            </div>
+        </mat-toolbar>
+    </div>
+    <ng-content></ng-content>
+</mat-drawer-container>

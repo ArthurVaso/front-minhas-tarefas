@@ -1,0 +1,17 @@
+
+    <button
+        *ngIf="widthPx == '0'"
+        class="button-material w-{{width}} fs-6 text-center" 
+        [ngStyle]="{backgroundColor: bgColor, color: textColor, height: height + 'px', width: widthPx + 'px'}" 
+        (click)="onClickButton()" 
+        mat-flat-button
+        [disabled]="disabled"
+    >{{value}}</button>
+    <button
+        *ngIf="widthPx != '0'"
+        class="button-material fs-6 text-center" 
+        [ngStyle]="{backgroundColor: bgColor, color: textColor, height: height + 'px', width: widthPx + 'px'}" 
+        (click)="onClickButton()" 
+        mat-flat-button
+        [disabled]="disabled"
+    >{{value}}</button>
