@@ -29,9 +29,9 @@ export class CadastroUsuarioComponent implements OnInit {
   public select = '-1';
 
   public sourceSelect = [
-    {Codigo: '0', Descricao: 'teste1'},
-    {Codigo: '1', Descricao: 'teste2'},
-    {Codigo: '2', Descricao: 'teste3'},
+    { Codigo: '0', Descricao: 'teste1' },
+    { Codigo: '1', Descricao: 'teste2' },
+    { Codigo: '2', Descricao: 'teste3' },
   ];
 
   constructor(
@@ -45,20 +45,20 @@ export class CadastroUsuarioComponent implements OnInit {
 
   onClickButtonCadastrar() {
 
-    if(!this.name) {
+    if (!this.name) {
       this.toastService.openErrorToast('O nome é obrigatório!');
 
       console.log("O nome é obrigatório!");
       return;
     }
 
-    if(!this.surname) {
+    if (!this.surname) {
       this.toastService.openErrorToast('O sobrenome é obrigatório!');
 
       return;
     }
 
-    if(!this.email) {
+    if (!this.email) {
       this.toastService.openErrorToast('O email é obrigatório!');
 
       return;
@@ -66,41 +66,32 @@ export class CadastroUsuarioComponent implements OnInit {
 
     const padraoEmail = new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/);
 
-    if(!padraoEmail.test(this.email)) {
+    if (!padraoEmail.test(this.email)) {
       this.toastService.openErrorToast('Email inválido!');
       return;
     }
 
-    if(!this.password) {
+    if (!this.password) {
       this.toastService.openErrorToast('A senha é obrigatória!');
 
       return;
     }
-    const usuarioLogin: Usuario = {
-      nome: "Arthur",
-      sobrenome: "Vaso",
-      email: "q@q.com",
-      senha: "123456",
-      ativo: true
-    } as Usuario;
-    /*
-      const usuarioLogin: Usuario = {
-        nome: this.name,
-        sobrenome: this.surname,
-        email: this.email,
-        senha: this.password,
-        ativo: true
-      };*/
-      console.log(usuarioLogin)
-      debugger
-      this.authService.signUp(usuarioLogin).subscribe({
-        next: () => {
-          this.router.navigate(['/login']);
-        },
-        error: err => {
-          this.toastService.openErrorToast(err);
-        }
-      });
+
+    var usuarioCadastro: Usuario = {
+      nome: this.name,
+      sobrenome: this.surname,
+      email: this.email,
+      senha: this.password,
+    };
+
+    this.authService.signUp(usuarioCadastro).subscribe({
+      next: () => {
+        this.router.navigate(['/listar-tarefa']);
+      },
+      error: err => {
+        this.toastService.openErrorToast(err.error.message);
+      }
+    });
 
   }
 

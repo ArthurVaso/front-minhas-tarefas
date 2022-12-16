@@ -19,11 +19,7 @@ const tokenInterceptorProvider = {
 };
 
 const routes: Routes = [
-    {
-      path: '',
-      redirectTo: 'home',
-      pathMatch: 'full'
-    },
+
     {
       path: 'home',
       component: HomeComponent,
@@ -32,17 +28,14 @@ const routes: Routes = [
     {
       path: 'cadastro',
       component: CadastroUsuarioComponent,
-      canActivate: [LoginGuard]
     },
     {
       path: 'login',
       component: LoginComponent,
-      canActivate: [LoginGuard]
     },
     {
       path: 'cadastro-tarefa',
       component: CadastroTarefaComponent,
-      canActivate: [LoginGuard]
     },
     {
       path: 'esqueceu-senha',
@@ -53,6 +46,11 @@ const routes: Routes = [
       path: 'listar-tarefa',
       component: ListarTarefaComponent,
       canActivate: [LoginGuard]
+    },
+    {
+      path: '',
+      redirectTo: 'login',
+      pathMatch: 'full'
     },
     {
       path: 'tarefa',

@@ -2,7 +2,7 @@ import { EsqueceuSenha } from './../../pages/esqueceu-senha/esqueceu-senha';
 import { Observable, switchMap, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SignUpReturn, Usuario, UsuarioLogin } from 'src/app/types/Usuario';
+import { SignUpReturn, Usuario } from 'src/app/types/Usuario';
 import { environment } from 'src/environments/environment';
 import { TokenService } from '../token/token.service';
 
@@ -18,25 +18,21 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  login(usuario: UsuarioLogin): Observable<any>{
+  login(usuario: Usuario): Observable<any>{
     return this.http
     .post<any>(BASE_URL + '/usuario/login', usuario)
     .pipe(switchMap((result: any) => {
-      debugger
-      this.saveToken(result.refresh_token);
-      this.saveUsuario(result.user);
-      console.log("login")
+      this.saveToken(result.refreshToken);
+      this.saveUsuario(result.usuario);
       return of(null);
     }));
   }
 
-  //Cria usuario
-  signUp(usuario: Usuario): Observable<any> {
-    return this.http
-    .post<any>(BASE_URL + '/usuario/', usuario)
-    .pipe(switchMap((result: any) => {
-      debugger
-      this.saveToken(result.refresh_token);
+  // Cria usuario
+  signUp(usuario: Usuario): Observable<null> {
+    return this.http.post<SignUpReturn>(BASE_URL + '/usuario/create', usuario)
+    .pipe(switchMap((result: SignUpReturn) => {
+      this.saveToken(result.refreshToken);
       this.saveUsuario(result.usuario);
       return of(null);
     }));
