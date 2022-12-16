@@ -1,8 +1,8 @@
 <div class="container-body">
-    <menu-material *ngIf="showMenu">
+    <menu-material *ngIf="!showMenu">
         <router-outlet></router-outlet>
     </menu-material>
-    <div class="container-body d-flex align-items-center justify-content-center mw-100" *ngIf="!showMenu">
+    <div class="container-body d-flex align-items-center justify-content-center mw-100" *ngIf="showMenu">
         <router-outlet></router-outlet>
     </div>
 </div>
