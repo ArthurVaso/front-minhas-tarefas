@@ -48,7 +48,7 @@ export class AuthInterceptor implements HttpInterceptor {
       if (this.router.url.includes('/esqueceu-senha')) {
         tokenReq = this.authService.isLogged();
       }
-      
+
       return tokenReq;
   }
 

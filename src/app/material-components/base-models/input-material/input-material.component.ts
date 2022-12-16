@@ -24,7 +24,7 @@ export class InputMaterialComponent {
   public valueChange: EventEmitter<string> = new EventEmitter<string>();
 
   @Output()
-  public ngModelDuenDinDinChange = new EventEmitter<any>();
+  public ngModelChange = new EventEmitter<any>();
 
   @Input()
   public required: 'required' | 'false' = 'false';
@@ -33,7 +33,7 @@ export class InputMaterialComponent {
 
   onChangeValue() {
     this.valueChange.emit(this.value);
-    this.ngModelDuenDinDinChange.emit(this.value);
+    this.ngModelChange.emit(this.value);
   }
 
 }

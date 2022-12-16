@@ -1,1 +1,51 @@
-<p>cadastro-usuario works!</p>
+<div class="container-content">
+  <centered-form-material [title]="'Cadastre-se'" [subTitle]="subTitle">
+    <span content>
+        <input-text-material
+            *ngIf="mostrarDadosPessoais"
+            label="NOME"
+            [(value)]="name"
+            width="100"
+            required="required"
+            [onlyLetters]="true"
+        ></input-text-material>
+        <input-text-material
+            *ngIf="mostrarDadosPessoais"
+            label="SOBRENOME"
+            [(value)]="surname"
+            width="100"
+            required="required"
+            [onlyLetters]="true"
+        ></input-text-material>
+        <input-email-material
+            *ngIf="mostrarDadosPessoais"
+            label="E-MAIL"
+            [(value)]="email"
+            [maxLength]="100"
+            type="email"
+            required="required"
+            width="100"
+            required="required"
+        ></input-email-material>
+        <input-password-material
+            *ngIf="mostrarDadosPessoais"
+            label="SENHA"
+            type="password"
+            [(value)]="password"
+            required="required"
+            width="100"
+            required="required"
+        ></input-password-material>
+          <button-form-material
+            *ngIf="mostrarDadosPessoais"
+            value="CADASTRAR"
+            (click)="onClickButtonCadastrar()"
+            bgColor="#154580"
+            textColor="#FFF"
+            width="100"
+            [height]="50"
+          ></button-form-material>
+        <p class="fs-6 mt-5 text-center" style="text-transform: uppercase;">Já possui uma conta? <a href="/login">ENTRE</a></p>
+    </span>
+  </centered-form-material>
+</div>

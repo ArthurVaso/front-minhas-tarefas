@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { InputMaterialComponent } from '../../../base-models/input-material/input-material.component';
 
 @Component({
-  selector: 'duendindin-input-password-material',
+  selector: 'input-password-material',
   templateUrl: './input-password-material.component.html',
   styleUrls: ['./input-password-material.component.scss']
 })
@@ -16,7 +16,7 @@ export class InputPasswordMaterialComponent extends InputMaterialComponent {
 
   hide = true;
 
-  constructor() { 
+  constructor() {
     super();
   }
 

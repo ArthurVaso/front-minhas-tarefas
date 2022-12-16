@@ -7,10 +7,6 @@ export interface Usuario {
     ativo?: boolean;
 }
 
-export interface SignUp extends Usuario {
-    renda_fixa: number;
-}
-
 export interface UsuarioLogin {
     email: string;
     senha: string;

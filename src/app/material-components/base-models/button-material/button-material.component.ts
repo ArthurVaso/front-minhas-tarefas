@@ -29,7 +29,7 @@ export class ButtonMaterialComponent implements OnInit {
   public disabled = false;
 
   @Output()
-  public clickDuenDinDin = new EventEmitter();
+  public click = new EventEmitter();
 
   constructor() { }
 
@@ -37,7 +37,7 @@ export class ButtonMaterialComponent implements OnInit {
   }
 
   onClickButton() {
-    this.clickDuenDinDin.emit();
+    this.click.emit();
   }
 
 }

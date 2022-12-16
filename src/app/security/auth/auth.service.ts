@@ -24,6 +24,7 @@ export class AuthService {
     .pipe(switchMap((result: any) => {
       this.saveToken(result.jwt);
       this.saveUsuario(result.user);
+      console.log("login")
       return of(null);
     }));
   }
@@ -31,8 +32,9 @@ export class AuthService {
   //Cria usuario
   signUp(usuario: Usuario): Observable<null> {
     return this.http
-    .post<SignUpReturn>(BASE_URL + '/usuario/', usuario)
+    .post<SignUpReturn>(BASE_URL + '/usuario', usuario)
     .pipe(switchMap((result: SignUpReturn) => {
+      debugger
       this.saveToken(result.refresh_token);
       this.saveUsuario(result.usuario);
       return of(null);

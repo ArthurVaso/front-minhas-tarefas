@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { InputMaterialComponent } from '../../../base-models/input-material/input-material.component';
 
 @Component({
-  selector: 'duendindin-input-email-material',
+  selector: 'input-email-material',
   templateUrl: './input-email-material.component.html',
   styleUrls: ['./input-email-material.component.scss']
 })
