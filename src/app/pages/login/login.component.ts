@@ -1,4 +1,4 @@
-import { UsuarioLogin } from './../../types/Usuario';
+import { Usuario } from './../../types/Usuario';
 import { ToastService } from './../../material-components/services/toast/toast.service';
 import { Router } from '@angular/router';
 import { AuthService } from './../../security/auth/auth.service';
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const usuarioLogin: UsuarioLogin = {
+    const usuarioLogin: Usuario = {
       email: this.email,
       senha: this.password
     }
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/listar-tarefa']);
       },
       error: err => {
-        this.toastService.openErrorToast(err.error.mensagem);
+        this.toastService.openErrorToast(err.error.message);
       }
     });
 

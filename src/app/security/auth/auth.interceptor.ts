@@ -5,7 +5,7 @@ import { AuthService } from "./auth.service";
 
 const LIST_NO_TOKEN_NEEDED_REQ = [
   '/login',
-  '/cadastro-usuario',
+  '/cadastro',
   '/esqueceu-senha',
   '/home',
 ]

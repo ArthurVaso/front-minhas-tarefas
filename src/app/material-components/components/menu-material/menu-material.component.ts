@@ -58,7 +58,7 @@ export class MenuMaterialComponent implements OnInit {
 
   onClickSair() {
     this.authService.signOut();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/login']);
   }
 
 }
