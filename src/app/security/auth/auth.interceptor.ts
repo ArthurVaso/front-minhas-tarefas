@@ -8,6 +8,7 @@ const LIST_NO_TOKEN_NEEDED_REQ = [
   '/cadastro',
   '/esqueceu-senha',
   '/home',
+  '/listar-tarefa'
 ]
 
 @Injectable({providedIn: 'root'})

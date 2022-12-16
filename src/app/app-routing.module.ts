@@ -1,3 +1,4 @@
+import { TarefaComponent } from './pages/tarefa/tarefa.component';
 import { ListarTarefaComponent } from './pages/listar-tarefa/listar-tarefa.component';
 import { CadastroUsuarioComponent } from './pages/cadastro-usuario/cadastro-usuario.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -50,6 +51,11 @@ const routes: Routes = [
       path: '',
       redirectTo: 'login',
       pathMatch: 'full'
+    },
+    {
+      path: 'tarefa',
+      component: TarefaComponent,
+      canActivate: [LoginGuard]
     },
 ]
 @NgModule({

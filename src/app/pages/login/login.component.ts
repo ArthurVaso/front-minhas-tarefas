@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
       email: this.email,
       senha: this.password
     }
-
+debugger
     this.authService.login(usuarioLogin).subscribe({
       next: () => {
         this.router.navigate(['/listar-tarefa']);
